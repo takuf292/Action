@@ -10,7 +10,7 @@ import android.graphics.Rect;
 
 public class Droid {
 
-    private static final float GRAVITY = 0.8f;
+    private static final float GRAVITY = 10.0f;
     // 重さは重力の６０倍？
     private static final float WEIGHT = GRAVITY *60;
 
@@ -66,7 +66,8 @@ public class Droid {
             rect.offset(0,distanceFromGround);
             return;
         }
-        // 表示する位置rectの示す値を縦向きに増加する
-        rect.offset(0,5);
+        // 現在の速度から定数GRAVITYを減産する　velocityがマイナス値になると時期の移動が
+        //　上昇から下降に変わる
+        velocity =- GRAVITY;
     }
 }
